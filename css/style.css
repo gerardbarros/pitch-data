@@ -1,5 +1,5 @@
 body {
-    background: #20262E;
+    background: #002d62;
     padding: 20px;
     font-family: Helvetica;
 }
@@ -45,10 +45,12 @@ button {
 }
 
 table {
-    font-family: arial, sans-serif;
+    font-family: Helvetica;
     border-collapse: collapse;
+    border-spacing: 0;
     width: 100%;
 }
+
 
 td, th {
     border: 1px solid #dddddd;
