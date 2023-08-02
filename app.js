@@ -23,18 +23,33 @@ getMultiPlayString = function(play) {
         inning = "Bot";
 }
     return ` 
-        <strong>Pitcher:</strong> ${play.pitcher_name} 
-        <br>
-        <strong>Pitch Name:</strong> ${play.pitch_name} 
-        <br>
-        <strong>Pitch Type:</strong> ${play.pitch_type}
-        <br> 
-        <strong>Plate Speed:</strong> ${Math.round(play.plate_speed)} MPH
-        <br> 
-        <strong>Initial Speed:</strong> ${Math.round(play.initial_speed)} MPH
-        <br>`;
+    
+            
+            <tr>
+                    <td>${play.pitcher_name} </td>
+                    <td>${play.pitch_name}</td>
+                    <td>${play.pitch_type}</td>
+                    <td>${Math.round(play.plate_speed)}</td>
+                    <td>${Math.round(play.initial_speed)}</td>
+                </tr>
+            
+            
+            
+            
+        
+        `
+        ;
 }
-
+        // <strong>Pitcher:</strong> ${play.pitcher_name} 
+        // <br>
+        // <strong>Pitch Name:</strong> ${play.pitch_name} 
+        // <br>
+        // <strong>Pitch Type:</strong> ${play.pitch_type}
+        // <br> 
+        // <strong>Plate Speed:</strong> ${Math.round(play.plate_speed)} MPH
+        // <br> 
+        // <strong>Initial Speed:</strong> ${Math.round(play.initial_speed)} MPH
+        // <br>`
 
 
 singlePitchButton.on("click", function() {
@@ -73,7 +88,7 @@ multiPitchButton.on("click", function() {
             for(let i = 0; i < pitches.length; i++) {
             let p = pitches[i];
             if(p.event_result !== "") {
-                $(".multi-pitch-events").append("<li>"+getMultiPlayString(p)+"</li>")
+                $(".multi-pitch-events").append("<tbody>"+getMultiPlayString(p)+"</tbody>")
             }
         }
         console.log(pitches[1].pitcher_name, pitches[1].pitch_number)
