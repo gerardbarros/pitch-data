@@ -25,14 +25,15 @@ getMultiPlayString = function(play) {
         inning = "Bot";
 }
     return `
-        <tr>
-            <td>${play.pitcher_name} </td>
-            <td>${play.pitch_name}</td>
-            <td>${play.pitch_type}</td>
-            <td>${Math.round(play.plate_speed)}</td>
-            <td>${Math.round(play.initial_speed)}</td>
-        </tr>`
-        ;
+        <tbody id="myTable">    
+            <tr>
+                <td>${play.pitcher_name} </td>
+                <td>${play.pitch_name}</td>
+                <td>${play.pitch_type}</td>
+                <td>${Math.round(play.plate_speed)}</td>
+                <td>${Math.round(play.initial_speed)}</td>
+            </tr>
+        </tbody>`;
 }
 
 
@@ -98,7 +99,7 @@ $(document).ready(function(){
 $(document).ready(function(){
     $("#multi-pitch-search").on("keyup", function() {
         let value = $(this).val().toLowerCase();
-        $("#multi-pitch-list tr").filter(function() {
+        $("#myTable tr").filter(function() {
             $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
         });
     });
