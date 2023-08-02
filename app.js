@@ -7,6 +7,8 @@ getSinglePlayString = function(play) {
         inning = "Bot";
 }
     return `
+        <strong>Pitcher Name:</strong> ${play.pitcher_name} 
+        <br>
         <strong>Pitch Name:</strong> ${play.pitch_name} 
         <br>
         <strong>Pitch Type:</strong> ${play.pitch_type}
@@ -22,34 +24,16 @@ getMultiPlayString = function(play) {
     if (play.inning_half === 1) {
         inning = "Bot";
 }
-    return ` 
-    
-            
-            <tr>
-                    <td>${play.pitcher_name} </td>
-                    <td>${play.pitch_name}</td>
-                    <td>${play.pitch_type}</td>
-                    <td>${Math.round(play.plate_speed)}</td>
-                    <td>${Math.round(play.initial_speed)}</td>
-                </tr>
-            
-            
-            
-            
-        
-        `
+    return `
+        <tr>
+            <td>${play.pitcher_name} </td>
+            <td>${play.pitch_name}</td>
+            <td>${play.pitch_type}</td>
+            <td>${Math.round(play.plate_speed)}</td>
+            <td>${Math.round(play.initial_speed)}</td>
+        </tr>`
         ;
 }
-        // <strong>Pitcher:</strong> ${play.pitcher_name} 
-        // <br>
-        // <strong>Pitch Name:</strong> ${play.pitch_name} 
-        // <br>
-        // <strong>Pitch Type:</strong> ${play.pitch_type}
-        // <br> 
-        // <strong>Plate Speed:</strong> ${Math.round(play.plate_speed)} MPH
-        // <br> 
-        // <strong>Initial Speed:</strong> ${Math.round(play.initial_speed)} MPH
-        // <br>`
 
 
 singlePitchButton.on("click", function() {
@@ -114,7 +98,7 @@ $(document).ready(function(){
 $(document).ready(function(){
     $("#multi-pitch-search").on("keyup", function() {
         let value = $(this).val().toLowerCase();
-        $("#multi-pitch-list li").filter(function() {
+        $("#multi-pitch-list tr").filter(function() {
             $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
         });
     });
