@@ -85,15 +85,6 @@ $("#hide-multi-pitch-data").click(function(){
     $(".multi-pitch-events").toggle();
 });
 
-// Search single list
-$(document).ready(function(){
-    $("#single-pitch-search").on("keyup", function() {
-        let value = $(this).val().toLowerCase();
-        $("#single-pitch-list li").filter(function() {
-            $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-        });
-    });
-});
 
 // Search multi list
 $(document).ready(function(){
