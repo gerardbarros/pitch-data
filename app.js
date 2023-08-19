@@ -1,4 +1,3 @@
-const singlePitchButton = $("#single-pitch-data")
 const multiPitchButton = $("#multi-pitch-data")
 
 getSinglePlayString = function(play) {
@@ -36,30 +35,6 @@ getMultiPlayString = function(play) {
         </tbody>`;
 }
 
-
-singlePitchButton.on("click", function() {
-    $.ajax({
-    type: "GET",
-    url: "https://raw.githubusercontent.com/rd-astros/hiring-resources/master/pitches.json",
-    data: [],
-    success: function(res) {
-        const json = $.parseJSON(res);
-        const pitches = json.queryResults.row;
-        // Following code is provided via the template
-            for(let i = 0; i < pitches.length; i++) {
-            let p = pitches[i];
-            if(p.event_result !== "") {
-                $(".single-pitch-events").append("<li>"+getSinglePlayString(p)+"</li>")
-            }
-        }
-        console.log(pitches[0].pitcher_name, pitches[0].pitch_number)
-    }
-	});
-});
-
-$("#hide-single-pitch-data").click(function(){
-    $(".single-pitch-events").toggle();
-});
 
 multiPitchButton.on("click", function() {
     $.ajax({
